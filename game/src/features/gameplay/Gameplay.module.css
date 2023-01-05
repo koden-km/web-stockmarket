@@ -1,0 +1,8 @@
+input:invalid {
+  background-color: #ff9090;
+}
+
+input:invalid+span:after {
+  content: '✖';
+  padding-left: 5px;
+}

@@ -3,6 +3,8 @@ import {ALPHA_1, ALPHA_2, ALPHA_3, ALPHA_4, OMEGA_1, OMEGA_2, OMEGA_3, OMEGA_4} 
 import {
   DIRECTION_LEFT,
   DIRECTION_RIGHT,
+  STOCK_PLUS_ALPHA,
+  STOCK_PLUS_OMEGA,
   TILE_TYPE_BROKER_FEE,
   TILE_TYPE_JOB,
   TILE_TYPE_SELL_ALL_STOCK,
@@ -36,60 +38,60 @@ export const board = [
   // rotated to view upside down and sideways tiles.
 
   // ## Top side
-  brokerFeeTile(DIRECTION_RIGHT),
-  sellAllStockTypeTile(ALPHA_3, DIRECTION_RIGHT),
-  stockTypeTile(OMEGA_4, DIRECTION_RIGHT),
-  stockTypeMeetingEntryTile(OMEGA_3, DIRECTION_RIGHT), // Coles
-  stockTypeTile(OMEGA_2, DIRECTION_LEFT),
-  stockTypeTile(OMEGA_1, DIRECTION_LEFT),
+  brokerFeeTile(DIRECTION_RIGHT, STOCK_PLUS_OMEGA * 20),
+  sellAllStockTypeTile(ALPHA_3, DIRECTION_RIGHT, STOCK_PLUS_OMEGA * 5),
+  stockTypeTile(OMEGA_4, DIRECTION_RIGHT, STOCK_PLUS_ALPHA * 4),
+  stockTypeMeetingEntryTile(OMEGA_3, DIRECTION_RIGHT, STOCK_PLUS_OMEGA * 3), // Coles
+  stockTypeTile(OMEGA_2, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 2),
+  stockTypeTile(OMEGA_1, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 1),
   startTile(),
-  stockTypeTile(ALPHA_1, DIRECTION_LEFT),
-  stockTypeTile(ALPHA_2, DIRECTION_LEFT),
-  stockTypeMeetingEntryTile(ALPHA_3, DIRECTION_LEFT), // Ampol
-  stockTypeTile(ALPHA_4, DIRECTION_LEFT),
-  sellAllStockTypeTile(OMEGA_3, DIRECTION_LEFT),
+  stockTypeTile(ALPHA_1, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 1),
+  stockTypeTile(ALPHA_2, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 2),
+  stockTypeMeetingEntryTile(ALPHA_3, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 3), // Ampol
+  stockTypeTile(ALPHA_4, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 4),
+  sellAllStockTypeTile(OMEGA_3, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 5),
 
   // ## Right side
-  brokerFeeTile(DIRECTION_RIGHT),
-  sellAllStockTypeTile(OMEGA_1, DIRECTION_RIGHT),
-  stockTypeTile(ALPHA_2, DIRECTION_RIGHT),
-  stockTypeMeetingEntryTile(ALPHA_1, DIRECTION_RIGHT), // Alcoa
-  stockTypeTile(ALPHA_4, DIRECTION_LEFT),
-  stockTypeTile(OMEGA_3, DIRECTION_LEFT),
+  brokerFeeTile(DIRECTION_RIGHT, STOCK_PLUS_ALPHA * 20),
+  sellAllStockTypeTile(OMEGA_1, DIRECTION_RIGHT, STOCK_PLUS_ALPHA * 5),
+  stockTypeTile(ALPHA_2, DIRECTION_RIGHT, STOCK_PLUS_OMEGA * 4),
+  stockTypeMeetingEntryTile(ALPHA_1, DIRECTION_RIGHT, STOCK_PLUS_ALPHA * 3), // Alcoa
+  stockTypeTile(ALPHA_4, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 2),
+  stockTypeTile(OMEGA_3, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 1),
   startTile(),
-  stockTypeTile(ALPHA_3, DIRECTION_LEFT),
-  stockTypeTile(OMEGA_4, DIRECTION_LEFT),
-  stockTypeMeetingEntryTile(OMEGA_1, DIRECTION_LEFT), // Woolworths
-  stockTypeTile(OMEGA_2, DIRECTION_LEFT),
-  sellAllStockTypeTile(ALPHA_1, DIRECTION_LEFT),
+  stockTypeTile(ALPHA_3, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 1),
+  stockTypeTile(OMEGA_4, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 2),
+  stockTypeMeetingEntryTile(OMEGA_1, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 3), // Woolworths
+  stockTypeTile(OMEGA_2, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 4),
+  sellAllStockTypeTile(ALPHA_1, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 5),
 
   // ## Bottom side
-  brokerFeeTile(DIRECTION_RIGHT),
-  sellAllStockTypeTile(OMEGA_4, DIRECTION_RIGHT),
-  stockTypeTile(ALPHA_3, DIRECTION_RIGHT),
-  stockTypeMeetingEntryTile(OMEGA_4, DIRECTION_RIGHT), // Western Mining
-  stockTypeTile(OMEGA_4, DIRECTION_LEFT),
-  stockTypeTile(OMEGA_2, DIRECTION_LEFT),
+  brokerFeeTile(DIRECTION_RIGHT, STOCK_PLUS_OMEGA * 20),
+  sellAllStockTypeTile(OMEGA_4, DIRECTION_RIGHT, STOCK_PLUS_OMEGA * 5),
+  stockTypeTile(ALPHA_3, DIRECTION_RIGHT, STOCK_PLUS_ALPHA * 4),
+  stockTypeMeetingEntryTile(OMEGA_4, DIRECTION_RIGHT, STOCK_PLUS_OMEGA * 3), // Western Mining
+  stockTypeTile(OMEGA_4, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 2),
+  stockTypeTile(OMEGA_2, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 1),
   startTile(),
-  stockTypeTile(ALPHA_2, DIRECTION_LEFT),
-  stockTypeTile(ALPHA_4, DIRECTION_LEFT),
-  stockTypeMeetingEntryTile(ALPHA_4, DIRECTION_LEFT), // BHP
-  stockTypeTile(OMEGA_3, DIRECTION_LEFT),
-  sellAllStockTypeTile(OMEGA_4, DIRECTION_LEFT),
+  stockTypeTile(ALPHA_2, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 1),
+  stockTypeTile(ALPHA_4, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 2),
+  stockTypeMeetingEntryTile(ALPHA_4, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 3), // BHP
+  stockTypeTile(OMEGA_3, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 4),
+  sellAllStockTypeTile(OMEGA_4, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 5),
 
   // ## Left side
-  brokerFeeTile(DIRECTION_RIGHT),
-  sellAllStockTypeTile(ALPHA_2, DIRECTION_RIGHT),
-  stockTypeTile(OMEGA_1, DIRECTION_RIGHT),
-  stockTypeMeetingEntryTile(OMEGA_2, DIRECTION_RIGHT), // Consolidated Press
-  stockTypeTile(ALPHA_3, DIRECTION_LEFT),
-  stockTypeTile(OMEGA_4, DIRECTION_LEFT),
+  brokerFeeTile(DIRECTION_RIGHT, STOCK_PLUS_ALPHA * 20),
+  sellAllStockTypeTile(ALPHA_2, DIRECTION_RIGHT, STOCK_PLUS_ALPHA * 5),
+  stockTypeTile(OMEGA_1, DIRECTION_RIGHT, STOCK_PLUS_OMEGA * 4),
+  stockTypeMeetingEntryTile(OMEGA_2, DIRECTION_RIGHT, STOCK_PLUS_ALPHA * 3), // Consolidated Press
+  stockTypeTile(ALPHA_3, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 2),
+  stockTypeTile(OMEGA_4, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 1),
   startTile(),
-  stockTypeTile(ALPHA_4, DIRECTION_LEFT),
-  stockTypeTile(OMEGA_3, DIRECTION_LEFT),
-  stockTypeMeetingEntryTile(ALPHA_2, DIRECTION_LEFT), // Bank of NSW
-  stockTypeTile(ALPHA_1, DIRECTION_LEFT),
-  sellAllStockTypeTile(OMEGA_2, DIRECTION_LEFT),
+  stockTypeTile(ALPHA_4, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 1),
+  stockTypeTile(OMEGA_3, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 2),
+  stockTypeMeetingEntryTile(ALPHA_2, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 3), // Bank of NSW
+  stockTypeTile(ALPHA_1, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 4),
+  sellAllStockTypeTile(OMEGA_2, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 5),
 
   // # Stockholder Meeting paths
 
@@ -202,24 +204,24 @@ function startTile () {
   return newTileData(TILE_TYPE_START)
 }
 
-function brokerFeeTile (direction) {
-  return newTileData(TILE_TYPE_BROKER_FEE, direction)
+function brokerFeeTile (direction, priceIndexChange) {
+  return newTileData(TILE_TYPE_BROKER_FEE, direction, priceIndexChange)
 }
 
-function sellAllStockTypeTile (stockType, direction) {
-  const tile = newTileData(TILE_TYPE_SELL_ALL_STOCK, direction)
+function sellAllStockTypeTile (stockType, direction, priceIndexChange) {
+  const tile = newTileData(TILE_TYPE_SELL_ALL_STOCK, direction, priceIndexChange)
   tile.stockType = stockType
   return tile
 }
 
-function stockTypeTile (stockType, direction) {
-  const tile = newTileData(TILE_TYPE_STOCK_PURCHASE, direction)
+function stockTypeTile (stockType, direction, priceIndexChange) {
+  const tile = newTileData(TILE_TYPE_STOCK_PURCHASE, direction, priceIndexChange)
   tile.stockType = stockType
   return tile
 }
 
-function stockTypeMeetingEntryTile (stockType, direction) {
-  const tile = newTileData(TILE_TYPE_STOCK_MEETING_ENTRY, direction)
+function stockTypeMeetingEntryTile (stockType, direction, priceIndexChange) {
+  const tile = newTileData(TILE_TYPE_STOCK_MEETING_ENTRY, direction, priceIndexChange)
   // tile.hasBranch = true
   tile.stockType = stockType
   // tile.stockPurchaseIsLimited = true
@@ -233,15 +235,15 @@ function stockTypeMeetingMultiplierTile (stockType, multiplier, direction) {
   return tile
 }
 
-function newTileData (tileType, tileDirection = undefined) {
+function newTileData (tileType, moveDirection = undefined, priceIndexChange = undefined) {
   const tileIndex = tileIndexGenerator++
 
   const calculateNextTileIndex = (currentMovingDirection = undefined) => {
-    if (currentMovingDirection === undefined && tileDirection === undefined) {
+    if (currentMovingDirection === undefined && moveDirection === undefined) {
       return tileIndex
     }
 
-    const direction = currentMovingDirection ?? tileDirection
+    const direction = currentMovingDirection ?? moveDirection
     return direction === DIRECTION_LEFT ? tileIndex + 1 : tileIndex - 1
   }
 
@@ -252,8 +254,9 @@ function newTileData (tileType, tileDirection = undefined) {
     calculateNextTileIndex,
 
     // Common properties
-    tileDirection, // DirectionType (constant left/right)
+    moveDirection, // DirectionType (constant left/right)
     // hasBranch: false, // bool, true if tile has a branch choice such as stock meeting entry or job
+    priceIndexChange, // int, the price index change amount if a stock type tile or broker fee tile
 
     // Job tile properties
     jobIndex: undefined, // int, a value of 0, 1, 2 or 3 if a job type tile

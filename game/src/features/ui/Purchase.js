@@ -1,15 +1,20 @@
 import React from 'react'
-// import {useSelector, useDispatch} from 'react-redux'
+// import {useDispatch} from 'react-redux'
 
-import {buyStock} from './gameplaySlice.js'
-
-// import styles from './Gameplay.module.css'
+// import {buyStock} from '../gameplay/gameplay-slice.js'
+// import {useCurrentPriceIndex} from '../gameplay/react-hooks.js'
+import styles from './UI.module.css'
 
 export default function Purchase (props) {
   // NOTE(KM): props or selector to get data?
   const {currentPriceIndex, limit, stock} = props
   // const currentPriceIndex = useSelector((state) => state.gameplay.currentPriceIndex)
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
+
+  const handleBuy = useCallback(() => {
+    // TODO(KM): get form data to send in action...
+    // dispatch(buyStock({quantity, stock, totalCost}))
+  }, [])
 
   return <div className={styles.Purchase}>
     <h2>Buy</h2>
@@ -21,6 +26,6 @@ export default function Purchase (props) {
     <div>
       Total
     </div>
-    <button aria-label='Buy' onClick={() => dispatch(buyStock())}>Buy</button>
+    <button aria-label='Buy' onClick={handleBuy}>Buy</button>
   </div>
 }

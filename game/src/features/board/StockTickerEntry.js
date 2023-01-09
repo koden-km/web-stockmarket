@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from './Board.module.css'
+import styles from './StockTicker.module.css'
 import {ALPHA_1, ALPHA_2, ALPHA_3, ALPHA_4, OMEGA_1, OMEGA_2, OMEGA_3, OMEGA_4} from '../stocks/constants.js'
 import {useStocks} from '../stocks/react-hooks.js'
 
@@ -14,7 +14,7 @@ export default function StockTickerEntry (props) {
 
   // TODO(KM): get prices for index... highlight active row (classnames() boolean...)
   // return <tr className={classnames(styles.StockTickerRow, [styles.StockTickerRowCurrent]: isCurrent)}>
-  return <tr className={styles.StockTickerRow}>
+  return <tr className={isCurrent ? `${styles.Entry} ${styles.IsCurrent}` : styles.Entry}>
     <td>{stocks[ALPHA_1].prices[priceIndex]}</td>
     <td>{stocks[ALPHA_2].prices[priceIndex]}</td>
     <td>{stocks[ALPHA_3].prices[priceIndex]}</td>

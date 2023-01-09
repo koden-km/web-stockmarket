@@ -1,0 +1,13 @@
+/* NOTE(KM: Not sure if this file should exist or if the UI elements should go in gameplay module? */
+
+.Purchase {
+  border: 1px solid magenta;
+}
+
+.BuyStockName {
+  border: 1px solid magenta;
+}
+
+.BuyStockCostPerShare {
+  border: 1px solid magenta;
+}

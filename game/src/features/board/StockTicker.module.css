@@ -1,0 +1,15 @@
+.StockTicker {
+  background-color: white;
+  border: 1em solid black;
+}
+
+.Entry {
+  background-color: white;
+  border: 1px solid black;
+}
+
+.IsCurrent {
+  background-color: white;
+  border: 1px solid black;
+  font-weight: bold;
+}

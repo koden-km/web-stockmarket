@@ -1,23 +1,18 @@
 .Job {
-  border: 2px solid black;
+  font-weight: bold;
+  /* border: 2px solid black; */
+  border: 1px solid magenta;
 }
 
 .Icon {
-  font-weight: bold;
+  font-size: x-large;
 }
 
 .Title {
-  font-weight: bold;
+  font-size: larger;
 }
 
-/*
-.Rolls {
-  ...
-}
-*/
-
-/*
+.Rolls,
 .Salary {
-  ...
+  font-size: large;
 }
-*/

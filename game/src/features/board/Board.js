@@ -1,12 +1,87 @@
 import React from 'react'
 
-// import Job from './Job.js'
-// import StockTile from './Job.js'
-// import {board} from '../gameplay/board.js'
+import {
+  TILE_TYPE_BROKER_FEE,
+  TILE_TYPE_JOB,
+  TILE_TYPE_SELL_ALL_STOCK,
+  TILE_TYPE_START,
+  TILE_TYPE_STOCK_MEETING_ENTRY,
+  TILE_TYPE_STOCK_MEETING_MULTIPLIER,
+  TILE_TYPE_STOCK_PURCHASE,
+} from '../gameplay/constants.js'
+
+import {board} from '../gameplay/board.js'
 import styles from './Board.module.css'
+import BrokerFee from './BrokerFee.js'
+import Job from './Job.js'
+import SellAllStock from './SellAllStock.js'
+import Start from './Start.js'
+import StockMeeting from './StockMeeting.js'
+import StockOption from './StockOption.js'
+
+// TODO(KM):
+// - Use `board` to generate tile components.
+// - Need to setup styling and grid layout areas?
+// - Idea: Try build a horizontal board that just kind of scrolls infinitely
+//   left/right as if there are no corners to turn...
 
 export default function Board () {
   return <div className={styles.Board}>
-    Test... try build a horizontal board that just kind of scrolls infinitely left/right as if there are no corners to turn...
+    {board.map(tile => {
+      const {tileType, tileIndex} = tile
+
+      switch (tileType) {
+        case TILE_TYPE_JOB: {
+          return <Job key={tileIndex} jobIndex={tile.jobIndex} />
+        }
+
+        case TILE_TYPE_BROKER_FEE: {
+          const {moveDirection, priceIndexChange} = tile
+          return <BrokerFee key={tileIndex} moveDirection={moveDirection} priceIndexChange={priceIndexChange} />
+        }
+
+        case TILE_TYPE_START: {
+          return <Start key={tileIndex} />
+        }
+
+        case TILE_TYPE_SELL_ALL_STOCK: {
+          const {moveDirection, priceIndexChange, stockType} = tile
+          return <SellAllStock
+            key={tileIndex}
+            moveDirection={moveDirection}
+            priceIndexChange={priceIndexChange}
+            stockType={stockType}
+          />
+        }
+
+        case TILE_TYPE_STOCK_PURCHASE: {
+          const {moveDirection, priceIndexChange, stockType} = tile
+          return <StockOption
+            key={tileIndex}
+            moveDirection={moveDirection}
+            priceIndexChange={priceIndexChange}
+            stockType={stockType}
+          />
+        }
+
+        case TILE_TYPE_STOCK_MEETING_ENTRY: {
+          const {moveDirection, priceIndexChange, stockType} = tile
+          return <StockOption
+            key={tileIndex}
+            moveDirection={moveDirection}
+            priceIndexChange={priceIndexChange}
+            stockType={stockType}
+            isMeetingEntry={true}
+          />
+        }
+
+        case TILE_TYPE_STOCK_MEETING_MULTIPLIER: {
+          const {stockMultiplier} = tile
+          return <StockMeeting key={tileIndex} multiplier={stockMultiplier} />
+        }
+
+        default: return null
+      }
+    })}
   </div>
 }

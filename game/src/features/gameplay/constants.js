@@ -3,6 +3,9 @@ export const MODULE = 'gameplay'
 export const DIRECTION_LEFT = 'left'
 export const DIRECTION_RIGHT = 'right'
 
+export const STOCK_PLUS_ALPHA = -1
+export const STOCK_PLUS_OMEGA = 1
+
 export const TILE_TYPE_BROKER_FEE = 'broker-fee'
 export const TILE_TYPE_JOB = 'job'
 export const TILE_TYPE_SELL_ALL_STOCK = 'sell-all'

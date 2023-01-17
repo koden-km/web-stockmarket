@@ -16,12 +16,6 @@ import {
 
 let tileIndexGenerator = 0
 
-// TODO(KM):
-// - Linking cells could be tricky?
-// - These might each need a `type` field so the `Board` component can render them?
-//   Unless I do it in reverse where the components are rendered directly?
-//   Probably still need something like this object for tracking position index state though?
-
 export const board = [
   // # Jobs
   jobTile(0),
@@ -30,107 +24,73 @@ export const board = [
   jobTile(3),
 
   // # Board Ring
-  // Going clockwise and starting top left when board laying with stock ticker
-  // sideways Alcoa on left and Woolworths on right. See original game
-  // screenshot "board full.jpg".
+  // Going anti-clockwise starting bottom left when board layout showing stock
+  // ticker upright based on up/down direction with Alcoa on left and Woolworths
+  // on right. See original game screenshot "board full.jpg".
   // Directions (for arrows) are specified from perspective of tile text when
-  // logically rotated to view tiles correct way up.eg. board is logically
-  // rotated to view upside down and sideways tiles.
-
-  // ## Top side
-  brokerFeeTile(DIRECTION_RIGHT, STOCK_PLUS_OMEGA * 20),
-  sellAllStockTypeTile(ALPHA_3, DIRECTION_RIGHT, STOCK_PLUS_OMEGA * 5),
-  stockTypeTile(OMEGA_4, DIRECTION_RIGHT, STOCK_PLUS_ALPHA * 4),
-  stockTypeMeetingEntryTile(OMEGA_3, DIRECTION_RIGHT, STOCK_PLUS_OMEGA * 3), // Coles
-  stockTypeTile(OMEGA_2, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 2),
-  stockTypeTile(OMEGA_1, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 1),
-  startTile(),
-  stockTypeTile(ALPHA_1, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 1),
-  stockTypeTile(ALPHA_2, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 2),
-  stockTypeMeetingEntryTile(ALPHA_3, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 3), // Ampol
-  stockTypeTile(ALPHA_4, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 4),
-  sellAllStockTypeTile(OMEGA_3, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 5),
-
-  // ## Right side
-  brokerFeeTile(DIRECTION_RIGHT, STOCK_PLUS_ALPHA * 20),
-  sellAllStockTypeTile(OMEGA_1, DIRECTION_RIGHT, STOCK_PLUS_ALPHA * 5),
-  stockTypeTile(ALPHA_2, DIRECTION_RIGHT, STOCK_PLUS_OMEGA * 4),
-  stockTypeMeetingEntryTile(ALPHA_1, DIRECTION_RIGHT, STOCK_PLUS_ALPHA * 3), // Alcoa
-  stockTypeTile(ALPHA_4, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 2),
-  stockTypeTile(OMEGA_3, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 1),
-  startTile(),
-  stockTypeTile(ALPHA_3, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 1),
-  stockTypeTile(OMEGA_4, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 2),
-  stockTypeMeetingEntryTile(OMEGA_1, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 3), // Woolworths
-  stockTypeTile(OMEGA_2, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 4),
-  sellAllStockTypeTile(ALPHA_1, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 5),
+  // logically rotated to view tiles correct way up. For example, the board is
+  // logically rotated to view upside down and sideways tiles as being the right
+  // way up.
 
   // ## Bottom side
-  brokerFeeTile(DIRECTION_RIGHT, STOCK_PLUS_OMEGA * 20),
-  sellAllStockTypeTile(OMEGA_4, DIRECTION_RIGHT, STOCK_PLUS_OMEGA * 5),
-  stockTypeTile(ALPHA_3, DIRECTION_RIGHT, STOCK_PLUS_ALPHA * 4),
-  stockTypeMeetingEntryTile(OMEGA_4, DIRECTION_RIGHT, STOCK_PLUS_OMEGA * 3), // Western Mining
-  stockTypeTile(OMEGA_4, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 2),
-  stockTypeTile(OMEGA_2, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 1),
+  brokerFeeTile(DIRECTION_RIGHT, STOCK_PLUS_ALPHA * 20),
+  sellAllStockTypeTile(ALPHA_1, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 5),
+  stockTypeTile(OMEGA_2, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 4),
+  stockTypeMeetingEntryTile(OMEGA_1, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 3), // Woolworths
+  stockTypeTile(OMEGA_4, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 2),
+  stockTypeTile(ALPHA_3, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 1),
   startTile(),
-  stockTypeTile(ALPHA_2, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 1),
-  stockTypeTile(ALPHA_4, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 2),
-  stockTypeMeetingEntryTile(ALPHA_4, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 3), // BHP
-  stockTypeTile(OMEGA_3, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 4),
-  sellAllStockTypeTile(OMEGA_4, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 5),
+  stockTypeTile(OMEGA_3, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 1),
+  stockTypeTile(ALPHA_4, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 2),
+  stockTypeMeetingEntryTile(ALPHA_1, DIRECTION_RIGHT, STOCK_PLUS_ALPHA * 3), // Alcoa
+  stockTypeTile(ALPHA_2, DIRECTION_RIGHT, STOCK_PLUS_OMEGA * 4),
+  sellAllStockTypeTile(OMEGA_1, DIRECTION_RIGHT, STOCK_PLUS_ALPHA * 5),
+
+  // ## Right side
+  brokerFeeTile(DIRECTION_RIGHT, STOCK_PLUS_OMEGA * 20),
+  sellAllStockTypeTile(OMEGA_3, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 5),
+  stockTypeTile(ALPHA_4, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 4),
+  stockTypeMeetingEntryTile(ALPHA_3, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 3), // Ampol
+  stockTypeTile(ALPHA_2, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 2),
+  stockTypeTile(ALPHA_1, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 1),
+  startTile(),
+  stockTypeTile(OMEGA_1, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 1),
+  stockTypeTile(OMEGA_2, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 2),
+  stockTypeMeetingEntryTile(OMEGA_3, DIRECTION_RIGHT, STOCK_PLUS_OMEGA * 3), // Coles
+  stockTypeTile(OMEGA_4, DIRECTION_RIGHT, STOCK_PLUS_ALPHA * 4),
+  sellAllStockTypeTile(ALPHA_3, DIRECTION_RIGHT, STOCK_PLUS_OMEGA * 5),
+
+  // ## Top side
+  brokerFeeTile(DIRECTION_RIGHT, STOCK_PLUS_ALPHA * 20),
+  sellAllStockTypeTile(OMEGA_2, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 5),
+  stockTypeTile(ALPHA_1, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 4),
+  stockTypeMeetingEntryTile(ALPHA_2, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 3), // Bank of NSW
+  stockTypeTile(OMEGA_3, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 2),
+  stockTypeTile(ALPHA_4, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 1),
+  startTile(),
+  stockTypeTile(OMEGA_4, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 1),
+  stockTypeTile(ALPHA_3, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 2),
+  stockTypeMeetingEntryTile(OMEGA_2, DIRECTION_RIGHT, STOCK_PLUS_ALPHA * 3), // Consolidated Press
+  stockTypeTile(OMEGA_1, DIRECTION_RIGHT, STOCK_PLUS_OMEGA * 4),
+  sellAllStockTypeTile(ALPHA_2, DIRECTION_RIGHT, STOCK_PLUS_ALPHA * 5),
 
   // ## Left side
-  brokerFeeTile(DIRECTION_RIGHT, STOCK_PLUS_ALPHA * 20),
-  sellAllStockTypeTile(ALPHA_2, DIRECTION_RIGHT, STOCK_PLUS_ALPHA * 5),
-  stockTypeTile(OMEGA_1, DIRECTION_RIGHT, STOCK_PLUS_OMEGA * 4),
-  stockTypeMeetingEntryTile(OMEGA_2, DIRECTION_RIGHT, STOCK_PLUS_ALPHA * 3), // Consolidated Press
-  stockTypeTile(ALPHA_3, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 2),
-  stockTypeTile(OMEGA_4, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 1),
+  brokerFeeTile(DIRECTION_RIGHT, STOCK_PLUS_OMEGA * 20),
+  sellAllStockTypeTile(OMEGA_4, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 5),
+  stockTypeTile(OMEGA_3, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 4),
+  stockTypeMeetingEntryTile(ALPHA_4, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 3), // BHP
+  stockTypeTile(ALPHA_4, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 2),
+  stockTypeTile(ALPHA_2, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 1),
   startTile(),
-  stockTypeTile(ALPHA_4, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 1),
-  stockTypeTile(OMEGA_3, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 2),
-  stockTypeMeetingEntryTile(ALPHA_2, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 3), // Bank of NSW
-  stockTypeTile(ALPHA_1, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 4),
-  sellAllStockTypeTile(OMEGA_2, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 5),
+  stockTypeTile(OMEGA_2, DIRECTION_LEFT, STOCK_PLUS_OMEGA * 1),
+  stockTypeTile(OMEGA_4, DIRECTION_LEFT, STOCK_PLUS_ALPHA * 2),
+  stockTypeMeetingEntryTile(OMEGA_4, DIRECTION_RIGHT, STOCK_PLUS_OMEGA * 3), // Western Mining
+  stockTypeTile(ALPHA_3, DIRECTION_RIGHT, STOCK_PLUS_ALPHA * 4),
+  sellAllStockTypeTile(OMEGA_4, DIRECTION_RIGHT, STOCK_PLUS_OMEGA * 5),
 
   // # Stockholder Meeting paths
 
-  // ## Top side meetings
-
-  // ### Coles
-  stockTypeMeetingMultiplierTile(OMEGA_3, 1, DIRECTION_LEFT),
-  stockTypeMeetingMultiplierTile(OMEGA_3, 2, DIRECTION_LEFT),
-  stockTypeMeetingMultiplierTile(OMEGA_3, 3, DIRECTION_LEFT),
-  stockTypeMeetingMultiplierTile(OMEGA_3, 2, DIRECTION_LEFT),
-  stockTypeMeetingMultiplierTile(OMEGA_3, 3, DIRECTION_LEFT),
-  stockTypeMeetingMultiplierTile(OMEGA_3, 2, DIRECTION_LEFT),
-  stockTypeMeetingMultiplierTile(OMEGA_3, 3, DIRECTION_LEFT),
-  stockTypeMeetingMultiplierTile(OMEGA_3, 2, DIRECTION_LEFT),
-  stockTypeMeetingMultiplierTile(OMEGA_3, 1, DIRECTION_LEFT),
-
-  // ### Ampol
-  stockTypeMeetingMultiplierTile(OMEGA_3, 1, DIRECTION_RIGHT),
-  stockTypeMeetingMultiplierTile(OMEGA_3, 2, DIRECTION_RIGHT),
-  stockTypeMeetingMultiplierTile(OMEGA_3, 3, DIRECTION_RIGHT),
-  stockTypeMeetingMultiplierTile(OMEGA_3, 2, DIRECTION_RIGHT),
-  stockTypeMeetingMultiplierTile(OMEGA_3, 3, DIRECTION_RIGHT),
-  stockTypeMeetingMultiplierTile(OMEGA_3, 2, DIRECTION_RIGHT),
-  stockTypeMeetingMultiplierTile(OMEGA_3, 3, DIRECTION_RIGHT),
-  stockTypeMeetingMultiplierTile(OMEGA_3, 2, DIRECTION_RIGHT),
-  stockTypeMeetingMultiplierTile(OMEGA_3, 1, DIRECTION_RIGHT),
-
-  // ## Right side meetings
-
-  // ### Alcoa
-  stockTypeMeetingMultiplierTile(ALPHA_1, 1, DIRECTION_LEFT),
-  stockTypeMeetingMultiplierTile(ALPHA_1, 2, DIRECTION_LEFT),
-  stockTypeMeetingMultiplierTile(ALPHA_1, 1, DIRECTION_LEFT),
-  stockTypeMeetingMultiplierTile(ALPHA_1, 2, DIRECTION_LEFT),
-  stockTypeMeetingMultiplierTile(ALPHA_1, 3, DIRECTION_LEFT),
-  stockTypeMeetingMultiplierTile(ALPHA_1, 2, DIRECTION_LEFT),
-  stockTypeMeetingMultiplierTile(ALPHA_1, 1, DIRECTION_LEFT),
-  stockTypeMeetingMultiplierTile(ALPHA_1, 2, DIRECTION_LEFT),
-  stockTypeMeetingMultiplierTile(ALPHA_1, 1, DIRECTION_LEFT),
+  // ## Bottom side meetings
 
   // ### Woolworths
   stockTypeMeetingMultiplierTile(OMEGA_1, 1, DIRECTION_RIGHT),
@@ -143,31 +103,53 @@ export const board = [
   stockTypeMeetingMultiplierTile(OMEGA_1, 2, DIRECTION_RIGHT),
   stockTypeMeetingMultiplierTile(OMEGA_1, 1, DIRECTION_RIGHT),
 
-  // ## Bottom side meetings
+  // ### Alcoa
+  stockTypeMeetingMultiplierTile(ALPHA_1, 1, DIRECTION_LEFT),
+  stockTypeMeetingMultiplierTile(ALPHA_1, 2, DIRECTION_LEFT),
+  stockTypeMeetingMultiplierTile(ALPHA_1, 1, DIRECTION_LEFT),
+  stockTypeMeetingMultiplierTile(ALPHA_1, 2, DIRECTION_LEFT),
+  stockTypeMeetingMultiplierTile(ALPHA_1, 3, DIRECTION_LEFT),
+  stockTypeMeetingMultiplierTile(ALPHA_1, 2, DIRECTION_LEFT),
+  stockTypeMeetingMultiplierTile(ALPHA_1, 1, DIRECTION_LEFT),
+  stockTypeMeetingMultiplierTile(ALPHA_1, 2, DIRECTION_LEFT),
+  stockTypeMeetingMultiplierTile(ALPHA_1, 1, DIRECTION_LEFT),
 
-  // ### Western Mining
-  stockTypeMeetingMultiplierTile(OMEGA_4, 1, DIRECTION_LEFT),
-  stockTypeMeetingMultiplierTile(OMEGA_4, 3, DIRECTION_LEFT),
-  stockTypeMeetingMultiplierTile(OMEGA_4, 2, DIRECTION_LEFT),
-  stockTypeMeetingMultiplierTile(OMEGA_4, 3, DIRECTION_LEFT),
-  stockTypeMeetingMultiplierTile(OMEGA_4, 2, DIRECTION_LEFT),
-  stockTypeMeetingMultiplierTile(OMEGA_4, 3, DIRECTION_LEFT),
-  stockTypeMeetingMultiplierTile(OMEGA_4, 2, DIRECTION_LEFT),
-  stockTypeMeetingMultiplierTile(OMEGA_4, 3, DIRECTION_LEFT),
-  stockTypeMeetingMultiplierTile(OMEGA_4, 1, DIRECTION_LEFT),
+  // ## Right side meetings
 
-  // ### BHP
-  stockTypeMeetingMultiplierTile(ALPHA_4, 1, DIRECTION_RIGHT),
-  stockTypeMeetingMultiplierTile(ALPHA_4, 3, DIRECTION_RIGHT),
-  stockTypeMeetingMultiplierTile(ALPHA_4, 2, DIRECTION_RIGHT),
-  stockTypeMeetingMultiplierTile(ALPHA_4, 3, DIRECTION_RIGHT),
-  stockTypeMeetingMultiplierTile(ALPHA_4, 2, DIRECTION_RIGHT),
-  stockTypeMeetingMultiplierTile(ALPHA_4, 3, DIRECTION_RIGHT),
-  stockTypeMeetingMultiplierTile(ALPHA_4, 2, DIRECTION_RIGHT),
-  stockTypeMeetingMultiplierTile(ALPHA_4, 3, DIRECTION_RIGHT),
-  stockTypeMeetingMultiplierTile(ALPHA_4, 1, DIRECTION_RIGHT),
+  // ### Ampol
+  stockTypeMeetingMultiplierTile(ALPHA_3, 1, DIRECTION_RIGHT),
+  stockTypeMeetingMultiplierTile(ALPHA_3, 2, DIRECTION_RIGHT),
+  stockTypeMeetingMultiplierTile(ALPHA_3, 3, DIRECTION_RIGHT),
+  stockTypeMeetingMultiplierTile(ALPHA_3, 2, DIRECTION_RIGHT),
+  stockTypeMeetingMultiplierTile(ALPHA_3, 3, DIRECTION_RIGHT),
+  stockTypeMeetingMultiplierTile(ALPHA_3, 2, DIRECTION_RIGHT),
+  stockTypeMeetingMultiplierTile(ALPHA_3, 3, DIRECTION_RIGHT),
+  stockTypeMeetingMultiplierTile(ALPHA_3, 2, DIRECTION_RIGHT),
+  stockTypeMeetingMultiplierTile(ALPHA_3, 1, DIRECTION_RIGHT),
 
-  // ## Left side meetings
+  // ### Coles
+  stockTypeMeetingMultiplierTile(OMEGA_3, 1, DIRECTION_LEFT),
+  stockTypeMeetingMultiplierTile(OMEGA_3, 2, DIRECTION_LEFT),
+  stockTypeMeetingMultiplierTile(OMEGA_3, 3, DIRECTION_LEFT),
+  stockTypeMeetingMultiplierTile(OMEGA_3, 2, DIRECTION_LEFT),
+  stockTypeMeetingMultiplierTile(OMEGA_3, 3, DIRECTION_LEFT),
+  stockTypeMeetingMultiplierTile(OMEGA_3, 2, DIRECTION_LEFT),
+  stockTypeMeetingMultiplierTile(OMEGA_3, 3, DIRECTION_LEFT),
+  stockTypeMeetingMultiplierTile(OMEGA_3, 2, DIRECTION_LEFT),
+  stockTypeMeetingMultiplierTile(OMEGA_3, 1, DIRECTION_LEFT),
+
+  // ## Top side meetings
+
+  // ### Bank of NSW
+  stockTypeMeetingMultiplierTile(ALPHA_2, 1, DIRECTION_RIGHT),
+  stockTypeMeetingMultiplierTile(ALPHA_2, 2, DIRECTION_RIGHT),
+  stockTypeMeetingMultiplierTile(ALPHA_2, 3, DIRECTION_RIGHT),
+  stockTypeMeetingMultiplierTile(ALPHA_2, 2, DIRECTION_RIGHT),
+  stockTypeMeetingMultiplierTile(ALPHA_2, 1, DIRECTION_RIGHT),
+  stockTypeMeetingMultiplierTile(ALPHA_2, 2, DIRECTION_RIGHT),
+  stockTypeMeetingMultiplierTile(ALPHA_2, 3, DIRECTION_RIGHT),
+  stockTypeMeetingMultiplierTile(ALPHA_2, 2, DIRECTION_RIGHT),
+  stockTypeMeetingMultiplierTile(ALPHA_2, 1, DIRECTION_RIGHT),
 
   // ### Consolidated Press
   stockTypeMeetingMultiplierTile(OMEGA_2, 1, DIRECTION_LEFT),
@@ -180,16 +162,29 @@ export const board = [
   stockTypeMeetingMultiplierTile(OMEGA_2, 2, DIRECTION_LEFT),
   stockTypeMeetingMultiplierTile(OMEGA_2, 1, DIRECTION_LEFT),
 
-  // ### Bank of NSW
-  stockTypeMeetingMultiplierTile(ALPHA_2, 1, DIRECTION_RIGHT),
-  stockTypeMeetingMultiplierTile(ALPHA_2, 2, DIRECTION_RIGHT),
-  stockTypeMeetingMultiplierTile(ALPHA_2, 3, DIRECTION_RIGHT),
-  stockTypeMeetingMultiplierTile(ALPHA_2, 2, DIRECTION_RIGHT),
-  stockTypeMeetingMultiplierTile(ALPHA_2, 1, DIRECTION_RIGHT),
-  stockTypeMeetingMultiplierTile(ALPHA_2, 2, DIRECTION_RIGHT),
-  stockTypeMeetingMultiplierTile(ALPHA_2, 3, DIRECTION_RIGHT),
-  stockTypeMeetingMultiplierTile(ALPHA_2, 2, DIRECTION_RIGHT),
-  stockTypeMeetingMultiplierTile(ALPHA_2, 1, DIRECTION_RIGHT),
+  // ## Right side meetings
+
+  // ### BHP
+  stockTypeMeetingMultiplierTile(ALPHA_4, 1, DIRECTION_RIGHT),
+  stockTypeMeetingMultiplierTile(ALPHA_4, 3, DIRECTION_RIGHT),
+  stockTypeMeetingMultiplierTile(ALPHA_4, 2, DIRECTION_RIGHT),
+  stockTypeMeetingMultiplierTile(ALPHA_4, 3, DIRECTION_RIGHT),
+  stockTypeMeetingMultiplierTile(ALPHA_4, 2, DIRECTION_RIGHT),
+  stockTypeMeetingMultiplierTile(ALPHA_4, 3, DIRECTION_RIGHT),
+  stockTypeMeetingMultiplierTile(ALPHA_4, 2, DIRECTION_RIGHT),
+  stockTypeMeetingMultiplierTile(ALPHA_4, 3, DIRECTION_RIGHT),
+  stockTypeMeetingMultiplierTile(ALPHA_4, 1, DIRECTION_RIGHT),
+
+  // ### Western Mining
+  stockTypeMeetingMultiplierTile(OMEGA_4, 1, DIRECTION_LEFT),
+  stockTypeMeetingMultiplierTile(OMEGA_4, 3, DIRECTION_LEFT),
+  stockTypeMeetingMultiplierTile(OMEGA_4, 2, DIRECTION_LEFT),
+  stockTypeMeetingMultiplierTile(OMEGA_4, 3, DIRECTION_LEFT),
+  stockTypeMeetingMultiplierTile(OMEGA_4, 2, DIRECTION_LEFT),
+  stockTypeMeetingMultiplierTile(OMEGA_4, 3, DIRECTION_LEFT),
+  stockTypeMeetingMultiplierTile(OMEGA_4, 2, DIRECTION_LEFT),
+  stockTypeMeetingMultiplierTile(OMEGA_4, 3, DIRECTION_LEFT),
+  stockTypeMeetingMultiplierTile(OMEGA_4, 1, DIRECTION_LEFT),
 ]
 
 function jobTile (jobIndex) {
@@ -255,7 +250,7 @@ function newTileData (tileType, moveDirection = undefined, priceIndexChange = un
 
     // Common properties
     moveDirection, // DirectionType (constant left/right)
-    // hasBranch: false, // bool, true if tile has a branch choice such as stock meeting entry or job
+    // hasBranch: false, // bool, true if tile has a branch choice such as stock meeting entry or job // NOTE(KM): Might not need
     priceIndexChange, // int, the price index change amount if a stock type tile or broker fee tile
 
     // Job tile properties
@@ -263,7 +258,7 @@ function newTileData (tileType, moveDirection = undefined, priceIndexChange = un
 
     // Stock tile properties
     stockMultiplier: undefined, // int, a value of 1, 2 or 3 if a stock meeting multipler tile
-    // stockPurchaseIsLimited: false, // bool, true if a stock meeting entry tile
+    // stockPurchaseIsLimited: false, // bool, true if a stock meeting entry tile // NOTE(KM): Might not need
     stockType: undefined, // int, stock type index if a stock type tile
   }
 }

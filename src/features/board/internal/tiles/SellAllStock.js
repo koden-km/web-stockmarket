@@ -1,18 +1,27 @@
+import classnames from 'classnames'
 import React from 'react'
 
 import {useStock} from '../../../stocks/react-hooks.js'
-import styles from '../../Board.module.css'
+import {edgeTileClass, stockColorClass} from '../../functions.js'
+import styles from './Tile.module.css'
 import MoveDirection from './internal/MoveDirection.js'
 import PriceChange from './internal/PriceChange.js'
 
 export default function SellAllStock (props) {
-  const {moveDirection, priceIndexChange, stockType} = props
+  const {moveDirection, priceIndexChange, stockType, tileIndex} = props.tile
   const stock = useStock(stockType)
 
-  return <div className={styles.SellAllStock}>
-    <span className={styles.SellStockTitle}>Sell All</span>
-    <span className={styles.SellStockName}>{stock.name}</span>
-    <span className={styles.SellStockInfo}>At {stock.basePrice} per share</span>
+  const className = classnames(
+    edgeTileClass(tileIndex),
+    stockColorClass(stock.color),
+    styles.Tile,
+    styles.SellAllStock,
+  )
+
+  return <div className={className}>
+    <div className={styles.SellStockTitle}>Sell All</div>
+    <div className={styles.SellStockName}>{stock.name}</div>
+    <div className={styles.SellStockInfo}>At {stock.basePrice} per share</div>
 
     <MoveDirection direction={moveDirection} />
     <PriceChange amount={priceIndexChange} />

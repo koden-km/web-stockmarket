@@ -1,0 +1,98 @@
+/* --- Common --- */
+
+/* .MoveDirection { } */
+
+/* .PriceIndexChange { } */
+
+.Tile {
+  color: black;
+  border: 1px solid black;
+  text-transform: uppercase;
+}
+
+/* --- Broker Fee tile --- */
+
+.BrokerFee {
+  background-color: white;
+}
+
+.BrokerFeeTitle {
+  font-weight: bold;
+  font-size: larger;
+}
+
+.BrokerFeeInfo,
+.BrokerFeePrice {
+  font-weight: bold;
+}
+
+/* --- Start tile --- */
+
+.Start {
+  background-color: white;
+}
+
+.StartTitle {
+  font-size: larger;
+  color: orangered;
+  font-weight: bold;
+}
+
+.StartInfo {
+  font-weight: bold;
+  font-size: large;
+}
+
+/* TODO(KM): render the odd/even directions side by side... */
+/* .StartDirection { } */
+/* .StartDirection > div::first-child { ... } */
+/* .StartDirection > div::last-child { ... } */
+/* .StartDirection > .MoveDirection::first-child { ... } */
+/* .StartDirection > .MoveDirection::last-child { ... } */
+
+/* --- Sell All Stock tile --- */
+
+/* .SellAllStock { } */
+
+.SellStockTitle,
+.SellStockName {
+  font-size: large;
+  font-weight: bold;
+}
+
+.SellStockInfo {
+  font-size: medium;
+  font-weight: bold;
+}
+
+
+/* --- Stock Meeting tile --- */
+
+.StockMeeting {
+  background-color: white;
+  border: 2px solid black;
+  color: black;
+  font-size: larger;
+  font-weight: bold;
+}
+
+/* --- Stock Option tile --- */
+
+/* .StockOption { } */
+
+.StockOptionEntry {
+  background-color: black;
+  color: white;
+}
+
+/* .StockOptionDividend { } */
+
+.StockOptionName {
+  font-size: large;
+  font-weight: bold;
+}
+
+.StockOptionLimit {
+  font-size: medium;
+  font-weight: bold;
+}

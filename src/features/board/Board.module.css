@@ -1,114 +1,374 @@
 .Board {
-  border: 1px solid magenta;
+  display: grid;
+  grid-template-areas:
+    "edge40  edge39  edge38  edge37  edge36  edge35  edge34  edge33  edge32  edge31  edge30  edge29  edge28"
+    "edge41  job0    job0    meetT9  .       .        .      .       .       meetT1  job1    job1    edge27"
+    "edge42  job0    job0    meetT8  meetT7  meetT6  meetT5  meetT4  meetT3  meetT2  job1    job1    edge26"
+    "edge43  meetL1  meetL2  ticker  ticker  ticker  ticker  ticker  ticker  ticker  meetR8  meetR9  edge25"
+    "edge44  .       meetL3  ticker  ticker  ticker  ticker  ticker  ticker  ticker  meetR7  .       edge24"
+    "edge45  .       meetL4  ticker  ticker  ticker  ticker  ticker  ticker  ticker  meetR6  .       edge23"
+    "edge46  .       meetL5  ticker  ticker  ticker  ticker  ticker  ticker  ticker  meetR5  .       edge22"
+    "edge47  .       meetL6  ticker  ticker  ticker  ticker  ticker  ticker  ticker  meetR4  .       edge21"
+    "edge48  .       meetL7  ticker  ticker  ticker  ticker  ticker  ticker  ticker  meetR3  .       edge20"
+    "edge49  meetL9  meetL8  ticker  ticker  ticker  ticker  ticker  ticker  ticker  meetR2  meetR1  edge19"
+    "edge50  job3    job3    meetB2  meetB3  meetB4  meetB5  meetB6  meetB7  meetB8  job2    job2    edge18"
+    "edge51  job3    job3    meetB1  .       .       .       .       .       meetB9  job2    job2    edge17"
+    "edge4   edge5   edge6   edge7   edge8   edge9   edge10  edge11  edge12  edge13  edge14  edge15  edge16";
 }
 
-/* --- Common --- */
-
-/* .MoveDirection { } */
-
-/* .PriceIndexChange { } */
-
-/* --- Broker Fee tile --- */
-
-.BrokerFee {
-  border: 1px solid black;
-  background-color: white;
-  ;
-  color: black;
+.Job0 {
+  grid-area: job0;
 }
 
-.BrokerFeeTitle {
-  font-weight: bold;
-  font-size: larger;
+.Job1 {
+  grid-area: job1;
 }
 
-/* .BrokerFeeInfo { } */
-
-/* .BrokerFeePrice { } */
-
-/* --- Start tile --- */
-
-.Start {
-  background-color: white;
-  color: black;
+.Job2 {
+  grid-area: job2;
 }
 
-.StartTitle {
-  font-size: larger;
-  color: orangered;
-  font-weight: bold;
+.Job3 {
+  grid-area: job3;
 }
 
-.StartInfo {
-  font-weight: bold;
-  font-size: large;
+.MeetB1 {
+  grid-area: meetB1;
 }
 
-/* .StartDirection { } */
-/* .StartDirection > span::first-child { ... } */
-/* .StartDirection > span::last-child { ... } */
-
-/* --- Stock Meeting tile --- */
-
-.StockMeeting {
-  background-color: white;
-  color: black;
-  font-weight: bold;
-  font-size: larger;
+.MeetB2 {
+  grid-area: meetB2;
 }
 
-/* --- Stock Option tile --- */
-
-.StockOption {
-  color: black;
+.MeetB3 {
+  grid-area: meetB3;
 }
 
-.StockOptionEntry {
-  background-color: black;
-  color: white;
+.MeetB4 {
+  grid-area: meetB4;
 }
 
-/* .StockOptionDividend { } */
-
-.StockOptionName {
-  font-weight: bold;
-  font-size: large;
+.MeetB5 {
+  grid-area: meetB5;
 }
 
-.StockOptionLimit {
-  font-size: medium;
+.MeetB6 {
+  grid-area: meetB6;
 }
 
-/* --- Stock Color's --- */
-
-.StockColorFireBrick {
-  background-color: firebrick;
+.MeetB7 {
+  grid-area: meetB7;
 }
 
-.StockColorGold {
-  background-color: gold;
+.MeetB8 {
+  grid-area: meetB8;
 }
 
-.StockColorOrange {
-  background-color: orange;
+.MeetB9 {
+  grid-area: meetB9;
 }
 
-.StockColorDodgerBlue {
-  background-color: dodgerblue;
+.MeetL1 {
+  grid-area: meetL1;
 }
 
-.StockColorMediumVioletRed {
-  background-color: mediumvioletred;
+.MeetL2 {
+  grid-area: meetL2;
 }
 
-.StockColorSeaGreen {
-  background-color: seagreen;
+.MeetL3 {
+  grid-area: meetL3;
 }
 
-.StockColorLimeGreen {
-  background-color: limegreen;
+.MeetL4 {
+  grid-area: meetL4;
 }
 
-.StockColorChocolate {
-  background-color: chocolate;
+.MeetL5 {
+  grid-area: meetL5;
+}
+
+.MeetL6 {
+  grid-area: meetL6;
+}
+
+.MeetL7 {
+  grid-area: meetL7;
+}
+
+.MeetL8 {
+  grid-area: meetL8;
+}
+
+.MeetL9 {
+  grid-area: meetL9;
+}
+
+.MeetR1 {
+  grid-area: meetR1;
+}
+
+.MeetR2 {
+  grid-area: meetR2;
+}
+
+.MeetR3 {
+  grid-area: meetR3;
+}
+
+.MeetR4 {
+  grid-area: meetR4;
+}
+
+.MeetR5 {
+  grid-area: meetR5;
+}
+
+.MeetR6 {
+  grid-area: meetR6;
+}
+
+.MeetR7 {
+  grid-area: meetR7;
+}
+
+.MeetR8 {
+  grid-area: meetR8;
+}
+
+.MeetR9 {
+  grid-area: meetR9;
+}
+
+.MeetT1 {
+  grid-area: meetT1;
+}
+
+.MeetT2 {
+  grid-area: meetT2;
+}
+
+.MeetT3 {
+  grid-area: meetT3;
+}
+
+.MeetT4 {
+  grid-area: meetT4;
+}
+
+.MeetT5 {
+  grid-area: meetT5;
+}
+
+.MeetT6 {
+  grid-area: meetT6;
+}
+
+.MeetT7 {
+  grid-area: meetT7;
+}
+
+.MeetT8 {
+  grid-area: meetT8;
+}
+
+.MeetT9 {
+  grid-area: meetT9;
+}
+
+
+.Ticker {
+  grid-area: ticker;
+}
+
+.Edge4 {
+  grid-area: edge4;
+}
+
+.Edge5 {
+  grid-area: edge5;
+}
+
+.Edge6 {
+  grid-area: edge6;
+}
+
+.Edge7 {
+  grid-area: edge7;
+}
+
+.Edge8 {
+  grid-area: edge8;
+}
+
+.Edge9 {
+  grid-area: edge9;
+}
+
+.Edge10 {
+  grid-area: edge10;
+}
+
+.Edge11 {
+  grid-area: edge11;
+}
+
+.Edge12 {
+  grid-area: edge12;
+}
+
+.Edge13 {
+  grid-area: edge13;
+}
+
+.Edge14 {
+  grid-area: edge14;
+}
+
+.Edge15 {
+  grid-area: edge15;
+}
+
+.Edge16 {
+  grid-area: edge16;
+}
+
+.Edge17 {
+  grid-area: edge17;
+}
+
+.Edge18 {
+  grid-area: edge18;
+}
+
+.Edge19 {
+  grid-area: edge19;
+}
+
+.Edge20 {
+  grid-area: edge20;
+}
+
+.Edge21 {
+  grid-area: edge21;
+}
+
+.Edge22 {
+  grid-area: edge22;
+}
+
+.Edge23 {
+  grid-area: edge23;
+}
+
+.Edge24 {
+  grid-area: edge24;
+}
+
+.Edge25 {
+  grid-area: edge25;
+}
+
+.Edge26 {
+  grid-area: edge26;
+}
+
+.Edge27 {
+  grid-area: edge27;
+}
+
+.Edge28 {
+  grid-area: edge28;
+}
+
+.Edge29 {
+  grid-area: edge29;
+}
+
+.Edge30 {
+  grid-area: edge30;
+}
+
+.Edge31 {
+  grid-area: edge31;
+}
+
+.Edge32 {
+  grid-area: edge32;
+}
+
+.Edge33 {
+  grid-area: edge33;
+}
+
+.Edge34 {
+  grid-area: edge34;
+}
+
+.Edge35 {
+  grid-area: edge35;
+}
+
+.Edge36 {
+  grid-area: edge36;
+}
+
+.Edge37 {
+  grid-area: edge37;
+}
+
+.Edge38 {
+  grid-area: edge38;
+}
+
+.Edge39 {
+  grid-area: edge39;
+}
+
+.Edge40 {
+  grid-area: edge40;
+}
+
+.Edge41 {
+  grid-area: edge41;
+}
+
+.Edge42 {
+  grid-area: edge42;
+}
+
+.Edge43 {
+  grid-area: edge43;
+}
+
+.Edge44 {
+  grid-area: edge44;
+}
+
+.Edge45 {
+  grid-area: edge45;
+}
+
+.Edge46 {
+  grid-area: edge46;
+}
+
+.Edge47 {
+  grid-area: edge47;
+}
+
+.Edge48 {
+  grid-area: edge48;
+}
+
+.Edge49 {
+  grid-area: edge49;
+}
+
+.Edge50 {
+  grid-area: edge50;
+}
+
+.Edge51 {
+  grid-area: edge51;
 }

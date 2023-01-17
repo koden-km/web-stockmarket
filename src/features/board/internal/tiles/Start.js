@@ -1,13 +1,23 @@
+import classnames from 'classnames'
 import React from 'react'
 
 import {DIRECTION_LEFT, DIRECTION_RIGHT} from '../../../gameplay/constants.js'
-import styles from '../..//Board.module.css'
+import {edgeTileClass} from '../../functions.js'
+import styles from './Tile.module.css'
 import MoveDirection from './internal/MoveDirection.js'
 
-export default function Start () {
-  return <div className={styles.Start}>
-    <span className={styles.StartTitle}>START</span>
-    <span className={styles.StartInfo}>Pay $100 Fee</span>
+export default function Start (props) {
+  const {tileIndex} = props.tile
+
+  const className = classnames(
+    edgeTileClass(tileIndex),
+    styles.Tile,
+    styles.Start,
+  )
+
+  return <div className={className}>
+    <div className={styles.StartTitle}>Start</div>
+    <div className={styles.StartInfo}>Pay $100 Fee</div>
 
     <div className={styles.StartDirection}>
       <MoveDirection direction={DIRECTION_LEFT} />
@@ -15,8 +25,8 @@ export default function Start () {
     </div>
 
     <div className={styles.StartDirection}>
-      <span>ODD</span>
-      <span>EVEN</span>
+      <div>ODD</div>
+      <div>EVEN</div>
     </div>
   </div>
 }

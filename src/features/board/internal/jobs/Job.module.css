@@ -1,11 +1,10 @@
 .Job {
   font-weight: bold;
-  /* border: 2px solid black; */
-  border: 1px solid magenta;
+  text-transform: uppercase;
 }
 
 .Icon {
-  font-size: x-large;
+  font-size: xx-large;
 }
 
 .Title {
@@ -15,4 +14,20 @@
 .Rolls,
 .Salary {
   font-size: large;
+}
+
+.Job0 {
+  grid-area: job0;
+}
+
+.Job1 {
+  grid-area: job1;
+}
+
+.Job2 {
+  grid-area: job2;
+}
+
+.Job3 {
+  grid-area: job3;
 }

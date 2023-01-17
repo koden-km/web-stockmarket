@@ -2,9 +2,8 @@
   background-color: white;
   border: .5em solid black;
   border-collapse: collapse;
-
-  /* border-collapse: separate; */
-  /* border-spacing: 0px; */
+  grid-area: ticker;
+  margin: 1em;
 }
 
 .StockTicker td {
@@ -20,7 +19,6 @@
 
 .Heading {
   border: 1px solid black;
-  /* padding: .5em; */
 }
 
 .Heading td {
@@ -35,10 +33,7 @@
   width: 5em;
 }
 
-.StockType {
-  /* padding: 1em; */
-  /* width: 10%; */
-}
+/* .StockType { } */
 
 /* .StockPrice { } */
 

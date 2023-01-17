@@ -20,11 +20,6 @@ import StockTicker from './internal/stock-ticker/StockTicker.js'
 import styles from './Board.module.css'
 import {board} from './board-data.js'
 
-// TODO(KM):
-// - Need to setup styling and grid layout areas?
-// - Idea: Try build a horizontal board that just kind of scrolls infinitely
-//   left/right as if there are no corners to turn...
-
 export default function Board () {
   return <div className={styles.Board}>
     <StockTicker />
@@ -33,55 +28,13 @@ export default function Board () {
       const {tileType, tileIndex} = tile
 
       switch (tileType) {
-        case TILE_TYPE_JOB: {
-          return <Job key={tileIndex} jobIndex={tile.jobIndex} />
-        }
-
-        case TILE_TYPE_BROKER_FEE: {
-          const {moveDirection, priceIndexChange} = tile
-          return <BrokerFee key={tileIndex} moveDirection={moveDirection} priceIndexChange={priceIndexChange} />
-        }
-
-        case TILE_TYPE_START: {
-          return <Start key={tileIndex} />
-        }
-
-        case TILE_TYPE_SELL_ALL_STOCK: {
-          const {moveDirection, priceIndexChange, stockType} = tile
-          return <SellAllStock
-            key={tileIndex}
-            moveDirection={moveDirection}
-            priceIndexChange={priceIndexChange}
-            stockType={stockType}
-          />
-        }
-
-        case TILE_TYPE_STOCK_PURCHASE: {
-          const {moveDirection, priceIndexChange, stockType} = tile
-          return <StockOption
-            key={tileIndex}
-            moveDirection={moveDirection}
-            priceIndexChange={priceIndexChange}
-            stockType={stockType}
-          />
-        }
-
-        case TILE_TYPE_STOCK_MEETING_ENTRY: {
-          const {moveDirection, priceIndexChange, stockType} = tile
-          return <StockOption
-            key={tileIndex}
-            moveDirection={moveDirection}
-            priceIndexChange={priceIndexChange}
-            stockType={stockType}
-            isMeetingEntry={true}
-          />
-        }
-
-        case TILE_TYPE_STOCK_MEETING_MULTIPLIER: {
-          const {stockMultiplier} = tile
-          return <StockMeeting key={tileIndex} multiplier={stockMultiplier} />
-        }
-
+        case TILE_TYPE_JOB: return <Job key={tileIndex} tile={tile} />
+        case TILE_TYPE_BROKER_FEE: return <BrokerFee key={tileIndex} tile={tile} />
+        case TILE_TYPE_START: return <Start key={tileIndex} tile={tile} />
+        case TILE_TYPE_SELL_ALL_STOCK: return <SellAllStock key={tileIndex} tile={tile} />
+        case TILE_TYPE_STOCK_PURCHASE: return <StockOption key={tileIndex} tile={tile} />
+        case TILE_TYPE_STOCK_MEETING_ENTRY: return <StockOption key={tileIndex} isMeetingEntry={true} tile={tile} />
+        case TILE_TYPE_STOCK_MEETING_MULTIPLIER: return <StockMeeting key={tileIndex} tile={tile} />
         default: return null
       }
     })}

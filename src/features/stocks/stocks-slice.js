@@ -12,10 +12,31 @@ const prices = [
   [], // Alpha/Omega 4
 ]
 
-for (let i = 230; i >= 30; i -= 4) prices[0].push(i)
-for (let i = 110; i >= 10; i -= 2) prices[1].push(i)
-for (let i = 75; i >= 15; i--) prices[2].push(i)
-for (let i = 42; i >= 18; i--) prices[3].push(i, i)
+// Pricing for Alpha/Omega 1
+for (let i = 230; i >= 30; i -= 4) {
+  prices[0].push(i)
+}
+
+// Pricing for Alpha/Omega 2
+for (let i = 110; i >= 10; i -= 2) {
+  prices[1].push(i)
+}
+
+// Pricing for Alpha/Omega 3
+for (let i = 75; i >= 15; i--) {
+  // skip adding price for every even number in this range
+  if (i < 55 && i > 35 && i % 2 === 0) continue
+
+  prices[2].push(i)
+}
+
+// Pricing for Alpha/Omega 4
+for (let i = 42; i >= 18; i--) {
+  prices[3].push(i, i)
+
+  // push a third value for the middle entry
+  if (i === 30) prices[3].push(i)
+}
 
 // array<StockState>
 const initialState = [

@@ -36,7 +36,7 @@
 .StartTitle {
   font-size: larger;
   color: orangered;
-
+  font-weight: bold;
 }
 
 .StartInfo {
@@ -81,8 +81,8 @@
 
 /* --- Stock Color's --- */
 
-.StockColorOrangeRed {
-  background-color: orangered;
+.StockColorFireBrick {
+  background-color: firebrick;
 }
 
 .StockColorGold {
@@ -109,6 +109,6 @@
   background-color: limegreen;
 }
 
-.StockColorBrown {
-  background-color: brown;
+.StockColorChocolate {
+  background-color: chocolate;
 }

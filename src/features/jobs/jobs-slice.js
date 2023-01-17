@@ -4,28 +4,28 @@ import {MODULE} from './constants.js'
 
 const initialState = [
   {
-    icon: '(star) ⭐️', // 🚓 🚔
+    icon: '(star) ⭐️', // ⭐️ 🚓 🚔
     title: 'Police',
     dice1: 5,
     dice2: 9,
     salary: 100,
   },
   {
-    icon: '(bag) 💼', // 🚑 🩺
+    icon: '(bag) 🩺', // 💼 🚑 🩺
     title: 'Doctor',
     dice1: 4,
     dice2: 10,
     salary: 200,
   },
   {
-    icon: '(helmet) ⛑️', // 🤿
-    title: 'Fireman',  // Diver
+    icon: '(helmet) 🤿', // ⛑️ 🤿
+    title: 'Diver', // could use Fireman?
     dice1: 5,
     dice2: 9,
     salary: 300,
   },
   {
-    icon: '(shovel) ⛏️', // ⚒️
+    icon: '(shovel) ⛏️', // ⛏️️️️ ⚒️
     title: 'Miner',
     dice1: 5,
     dice2: 9,

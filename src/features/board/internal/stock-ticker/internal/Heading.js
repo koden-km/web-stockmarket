@@ -7,16 +7,16 @@ import StockType from './StockType.js'
 
 export default function Heading () {
   return <tr className={styles.Heading}>
-    <td><StockType stockIndex={ALPHA_1} /></td>
-    <td><StockType stockIndex={ALPHA_2} /></td>
-    <td><StockType stockIndex={ALPHA_3} /></td>
-    <td><StockType stockIndex={ALPHA_4} /></td>
+    <StockType stockIndex={ALPHA_1} />
+    <StockType stockIndex={ALPHA_2} />
+    <StockType stockIndex={ALPHA_3} />
+    <StockType stockIndex={ALPHA_4} />
 
-    <td><Gap /></td>
+    <Gap />
 
-    <td><StockType stockIndex={OMEGA_4} /></td>
-    <td><StockType stockIndex={OMEGA_3} /></td>
-    <td><StockType stockIndex={OMEGA_2} /></td>
-    <td><StockType stockIndex={OMEGA_1} /></td>
+    <StockType stockIndex={OMEGA_4} />
+    <StockType stockIndex={OMEGA_3} />
+    <StockType stockIndex={OMEGA_2} />
+    <StockType stockIndex={OMEGA_1} />
   </tr>
 }

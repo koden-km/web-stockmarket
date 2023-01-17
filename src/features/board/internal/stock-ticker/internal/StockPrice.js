@@ -9,7 +9,7 @@ export default function StockPrice (props) {
   const {priceIndex, stockIndex} = props
   const stock = useStock(stockIndex)
 
-  return <div className={classnames(styles.Price, stockColorClass(stock.color))}>
+  return <td className={classnames(styles.Price, stockColorClass(stock.color))}>
     {stock.prices[priceIndex]}
-  </div>
+  </td>
 }

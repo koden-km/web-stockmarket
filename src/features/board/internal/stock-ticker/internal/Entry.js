@@ -10,16 +10,16 @@ export default function Entry (props) {
   const {isCurrent, priceIndex} = props
 
   return <tr className={classnames(styles.Entry, {[styles.IsCurrent]: isCurrent})}>
-    <td><StockPrice priceIndex={priceIndex} stockIndex={ALPHA_1} /></td>
-    <td><StockPrice priceIndex={priceIndex} stockIndex={ALPHA_2} /></td>
-    <td><StockPrice priceIndex={priceIndex} stockIndex={ALPHA_3} /></td>
-    <td><StockPrice priceIndex={priceIndex} stockIndex={ALPHA_4} /></td>
+    <StockPrice priceIndex={priceIndex} stockIndex={ALPHA_1} />
+    <StockPrice priceIndex={priceIndex} stockIndex={ALPHA_2} />
+    <StockPrice priceIndex={priceIndex} stockIndex={ALPHA_3} />
+    <StockPrice priceIndex={priceIndex} stockIndex={ALPHA_4} />
 
-    <td><Gap /></td>
+    <Gap />
 
-    <td><StockPrice priceIndex={priceIndex} stockIndex={OMEGA_4} /></td>
-    <td><StockPrice priceIndex={priceIndex} stockIndex={OMEGA_3} /></td>
-    <td><StockPrice priceIndex={priceIndex} stockIndex={OMEGA_2} /></td>
-    <td><StockPrice priceIndex={priceIndex} stockIndex={OMEGA_1} /></td>
+    <StockPrice priceIndex={priceIndex} stockIndex={OMEGA_4} />
+    <StockPrice priceIndex={priceIndex} stockIndex={OMEGA_3} />
+    <StockPrice priceIndex={priceIndex} stockIndex={OMEGA_2} />
+    <StockPrice priceIndex={priceIndex} stockIndex={OMEGA_1} />
   </tr>
 }

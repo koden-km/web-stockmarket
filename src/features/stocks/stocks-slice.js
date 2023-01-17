@@ -41,7 +41,7 @@ for (let i = 42; i >= 18; i--) {
 // array<StockState>
 const initialState = [
   { // Alpha 1
-    color: 'OrangeRed',
+    color: 'FireBrick',
     dividend: 4,
     name: 'Alcoa',
     prices: prices[0],
@@ -50,7 +50,7 @@ const initialState = [
   { // Alpha 2
     color: 'Gold',
     dividend: 3,
-    name: 'Bank of NSW',
+    name: 'Bank of N.S.W.',
     prices: prices[1],
     basePrice: prices[1][prices[1].length - 1],
   },
@@ -64,7 +64,7 @@ const initialState = [
   { // Alpha 4
     color: 'DodgerBlue',
     dividend: 1,
-    name: 'BHP',
+    name: 'B.H.P.',
     prices: prices[3],
     basePrice: prices[3][prices[3].length - 1],
   },
@@ -90,7 +90,7 @@ const initialState = [
     basePrice: prices[1][0],
   },
   { // Omega 1
-    color: 'Brown',
+    color: 'Chocolate',
     dividend: 4,
     name: 'Woolworths',
     prices: [...prices[0]].reverse(),

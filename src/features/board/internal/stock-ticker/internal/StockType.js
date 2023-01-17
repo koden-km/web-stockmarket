@@ -9,7 +9,7 @@ export default function StockType (props) {
   const {stockIndex} = props
   const stock = useStock(stockIndex)
 
-  return <div className={classnames(styles.StockType, stockColorClass(stock.color))}>
+  return <td className={classnames(styles.StockType, stockColorClass(stock.color))}>
     {stock.name}
-  </div>
+  </td>
 }

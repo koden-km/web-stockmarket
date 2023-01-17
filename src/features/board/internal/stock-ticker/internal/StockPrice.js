@@ -3,7 +3,7 @@ import React from 'react'
 
 import {useStock} from '../../../../stocks/react-hooks.js'
 import {stockColorClass} from '../../../functions.js'
-import styles from '../StockTick.module.css'
+import styles from '../StockTicker.module.css'
 
 export default function StockPrice (props) {
   const {priceIndex, stockIndex} = props

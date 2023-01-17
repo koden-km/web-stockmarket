@@ -10,23 +10,25 @@ import {
   TILE_TYPE_STOCK_PURCHASE,
 } from '../gameplay/constants.js'
 
-import {board} from '../gameplay/board.js'
 import Job from './internal/jobs/Job.js'
 import BrokerFee from './internal/tiles/BrokerFee.js'
 import SellAllStock from './internal/tiles/SellAllStock.js'
 import Start from './internal/tiles/Start.js'
 import StockMeeting from './internal/tiles/StockMeeting.js'
 import StockOption from './internal/tiles/StockOption.js'
+import StockTicker from './internal/stock-ticker/StockTicker.js'
 import styles from './Board.module.css'
+import {board} from './board-data.js'
 
 // TODO(KM):
-// - Use `board` to generate tile components.
 // - Need to setup styling and grid layout areas?
 // - Idea: Try build a horizontal board that just kind of scrolls infinitely
 //   left/right as if there are no corners to turn...
 
 export default function Board () {
   return <div className={styles.Board}>
+    <StockTicker />
+
     {board.map(tile => {
       const {tileType, tileIndex} = tile
 

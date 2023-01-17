@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from './Board.module.css'
+import styles from '../..//Board.module.css'
 
 export default function StockMeeting (props) {
   const {multiplier} = props

@@ -3,13 +3,19 @@
   border: 1em solid black;
 }
 
+.Heading {
+  border: 1px solid black;
+}
+
 .Entry {
-  background-color: white;
   border: 1px solid black;
 }
 
 .IsCurrent {
-  background-color: white;
-  border: 1px solid black;
+  border: 1px solid white;
   font-weight: bold;
 }
+
+/* .StockType { } */
+
+/* .StockPrice { } */

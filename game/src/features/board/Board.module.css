@@ -2,6 +2,14 @@
   border: 1px solid magenta;
 }
 
+/* --- Common --- */
+
+/* .MoveDirection { } */
+
+/* .PriceIndexChange { } */
+
+/* --- Broker Fee tile --- */
+
 .BrokerFee {
   border: 1px solid black;
   background-color: white;
@@ -15,6 +23,10 @@
 }
 
 /* .BrokerFeeInfo { } */
+
+/* .BrokerFeePrice { } */
+
+/* --- Start tile --- */
 
 .Start {
   background-color: white;
@@ -33,13 +45,19 @@
 }
 
 /* .StartDirection { } */
+/* .StartDirection > span::first-child { ... } */
+/* .StartDirection > span::last-child { ... } */
 
-/* .MoveDirection { } */
+/* --- Stock Meeting tile --- */
 
-/* .PriceIndexChange { } */
+.StockMeeting {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  font-size: larger;
+}
 
-/* .SellPriceInfo { } */
-
+/* --- Stock Option tile --- */
 
 .StockOption {
   color: black;
@@ -50,7 +68,7 @@
   color: white;
 }
 
-/* .StockOptionDiv { } */
+/* .StockOptionDividend { } */
 
 .StockOptionName {
   font-weight: bold;
@@ -61,11 +79,13 @@
   font-size: medium;
 }
 
-.StockColorRed {
+/* --- Stock Color's --- */
+
+.StockColorOrangeRed {
   background-color: orangered;
 }
 
-.StockColorYellow {
+.StockColorGold {
   background-color: gold;
 }
 
@@ -73,19 +93,19 @@
   background-color: orange;
 }
 
-.StockColorBlue {
+.StockColorDodgerBlue {
   background-color: dodgerblue;
 }
 
-.StockColorPurple {
+.StockColorMediumVioletRed {
   background-color: mediumvioletred;
 }
 
-.StockColorDarkgreen {
+.StockColorSeaGreen {
   background-color: seagreen;
 }
 
-.StockColorGreen {
+.StockColorLimeGreen {
   background-color: limegreen;
 }
 

@@ -11,13 +11,13 @@ import {
 } from '../gameplay/constants.js'
 
 import {board} from '../gameplay/board.js'
+import Job from './internal/jobs/Job.js'
+import BrokerFee from './internal/tiles/BrokerFee.js'
+import SellAllStock from './internal/tiles/SellAllStock.js'
+import Start from './internal/tiles/Start.js'
+import StockMeeting from './internal/tiles/StockMeeting.js'
+import StockOption from './internal/tiles/StockOption.js'
 import styles from './Board.module.css'
-import BrokerFee from './BrokerFee.js'
-import Job from './Job.js'
-import SellAllStock from './SellAllStock.js'
-import Start from './Start.js'
-import StockMeeting from './StockMeeting.js'
-import StockOption from './StockOption.js'
 
 // TODO(KM):
 // - Use `board` to generate tile components.

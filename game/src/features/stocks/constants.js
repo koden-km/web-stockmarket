@@ -1,6 +1,6 @@
 export const MODULE = 'stocks'
 
-// stock type indices
+// Stock type indices
 export const ALPHA_1 = 0 // Alcoa
 export const ALPHA_2 = 1 // Bank of NSW
 export const ALPHA_3 = 2 // Ampol
@@ -9,9 +9,6 @@ export const OMEGA_4 = 4 // Western Mining
 export const OMEGA_3 = 5 // Coles
 export const OMEGA_2 = 6 // Consolidated Press
 export const OMEGA_1 = 7 // Woolworths
-
-export const CHANGE_ALPHA = -1
-export const CHANGE_OMEGA = -1
 
 export const MAX_STOCK_TYPES = 8
 export const MAX_PRICE_ENTRIES = 51 // an odd number so there is equal number of stock prices on either side

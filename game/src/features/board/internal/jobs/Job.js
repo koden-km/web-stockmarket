@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {useJob} from '../jobs/react-hooks.js'
+import {useJob} from '../../../jobs/react-hooks.js'
 import styles from './Job.module.css'
 
 export default function Job (props) {
